@@ -1,15 +1,9 @@
-import Fastify from 'fastify';
-import appRoute from './routes.js';
-
-const fastify = Fastify({
-  logger: true,
-});
-
-appRoute(fastify);
+import app from './config/app.js';
+import env from './config/env.js';
 
 try {
-  await fastify.listen({ port: 8080 });
-} catch (err) {
-  fastify.log.error(err);
+  await app.listen({ port: env.port });
+} catch (error) {
+  app.log.error(error);
   process.exit(1);
 }
