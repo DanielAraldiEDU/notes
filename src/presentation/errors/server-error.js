@@ -1,6 +1,6 @@
 /**
  * @class ServerError
- * @constructor paramName is a string to stack error.
+ * @constructor stack is a string to stack error.
  *
  * @extends {Error}
  */
