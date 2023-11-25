@@ -28,5 +28,8 @@
   },
   "engines": {
     "node": ">=16.x"
+  },
+  "devDependencies": {
+    "git-commit-msg-linter": "^5.0.4"
   }
 }
