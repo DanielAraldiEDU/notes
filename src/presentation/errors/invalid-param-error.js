@@ -1,5 +1,5 @@
 /**
- * @class InvalidParamError
+ * @class InvalidParamError - Error thrown when a parameter is invalid.
  * @constructor paramName is a string describing the error message.
  *
  * @extends {Error}

@@ -1,5 +1,5 @@
 /**
- * @class MissingParamError
+ * @class MissingParamError - Error thrown when a parameter is missing.
  * @constructor paramName is a string describing the error message.
  *
  * @extends {Error}

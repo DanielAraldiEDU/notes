@@ -1,5 +1,7 @@
 /**
+ * @function adaptRoute - An adapter to any route.
  * @param {Controller} controller - The controller **always** contains a single method called `handle`.
+ *
  * @returns {Promise<void>} - Promise with the result of the server.
  */
 export const adaptRoute = controller => {
@@ -11,7 +13,7 @@ export const adaptRoute = controller => {
    * @param {*} reply - The reply object is used to return the result of the server.
    */
   return async (request, reply) => {
-    const httpResponse = await controller.handle(request);
+    const httpResponse = await controller.handle(request.body);
     if (httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299) {
       reply.code(httpResponse.statusCode).send(httpResponse.body);
     } else {

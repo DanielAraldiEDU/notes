@@ -1,5 +1,5 @@
 /**
- * @class ServerError
+ * @class ServerError - Error thrown when a server error occurs.
  * @constructor stack is a string to stack error.
  *
  * @extends {Error}
