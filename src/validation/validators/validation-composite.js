@@ -17,7 +17,6 @@ export class ValidationComposite extends Validation {
 
   validate(input) {
     for (const validation of this.validations) {
-      console.log(input);
       const error = validation.validate(input);
       if (error) return error;
     }
