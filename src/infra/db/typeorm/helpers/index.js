@@ -17,6 +17,15 @@ export const TypeOrmHelper = {
   dataSource: null,
 
   /**
+   * @method isInitialized - Should be called to check if the
+   * `dataSource` is initialized or not.
+   * @returns {boolean}
+   */
+  isInitialized() {
+    return this.dataSource && this.dataSource.isInitialized;
+  },
+
+  /**
    * @method create - It is used to create a instance of data source.
    * It must be called before **any** operations.
    */
@@ -35,11 +44,25 @@ export const TypeOrmHelper = {
   },
 
   /**
+   * @method getRepository - Get a repository.
+   * @param {Model} repository - Repository model to get
+   * all results.
+   * @returns {Repository | null} - Returns the repository
+   * or `null` if repository doesn't not exists.
+   */
+  getRepository(repository) {
+    if (this.isInitialized()) {
+      return this.dataSource.getRepository(repository);
+    }
+    return null;
+  },
+
+  /**
    * @async
    * @method initialize - It initializes the database.
    */
   async initialize() {
-    if (this.dataSource && !this.dataSource.isInitialized) {
+    if (!this.isInitialized()) {
       await this.dataSource.initialize();
     }
   },

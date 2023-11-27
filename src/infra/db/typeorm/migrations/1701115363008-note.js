@@ -18,11 +18,13 @@ export class Note1701115363008 {
             name: 'title',
             type: 'varchar',
             isNullable: false,
+            length: 6500,
           },
           {
             name: 'message',
             type: 'varchar',
             isNullable: false,
+            length: 65000,
           },
           {
             name: 'createdAt',

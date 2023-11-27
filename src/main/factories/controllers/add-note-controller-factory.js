@@ -1,4 +1,5 @@
 import { AddNoteController } from '../../../presentation/controllers/index.js';
+import { makeDbAddNote } from '../usecases/index.js';
 import { makeAddNoteValidation } from './add-note-validation-factory.js';
 
 /**
@@ -9,4 +10,4 @@ import { makeAddNoteValidation } from './add-note-validation-factory.js';
  * that will be used on routes.
  */
 export const makeAddNoteController = () =>
-  new AddNoteController(makeAddNoteValidation());
+  new AddNoteController(makeAddNoteValidation(), makeDbAddNote());

@@ -1,4 +1,9 @@
-import { badRequest, ok, serverError } from '../helpers/index.js';
+import {
+  badRequest,
+  notImplemented,
+  ok,
+  serverError,
+} from '../helpers/index.js';
 import { Controller } from '../protocols/index.js';
 
 /**
@@ -22,6 +27,7 @@ export class AddNoteController extends Controller {
       if (error) return badRequest(error);
 
       const id = await this.dbAddNote.add(request);
+      if (!id) return notImplemented();
       return ok({ id });
     } catch (error) {
       return serverError(error);

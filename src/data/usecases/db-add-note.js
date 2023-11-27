@@ -1,10 +1,12 @@
-import { AddNote } from '../../domain';
+import { AddNote } from '../../domain/index.js';
 
 /**
  * @public
- * @class `DbAddNote` - It's an implementation of database add note.
+ * @class `DbAddNote` - It's an implementation of database add
+ * note.
  *
- * @constructor `addNoteRepository` - It's an implementation of database add note repository.
+ * @constructor `addNoteRepository` - It's an implementation of
+ * database add note repository.
  */
 export class DbAddNote extends AddNote {
   constructor(addNoteRepository) {
@@ -13,6 +15,6 @@ export class DbAddNote extends AddNote {
   }
 
   async add(note) {
-    return this.addNoteRepository.add(note);
+    return await this.addNoteRepository.add(note);
   }
 }
