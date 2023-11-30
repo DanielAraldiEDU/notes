@@ -1,5 +1,5 @@
 {
-  "name": "notes",
+  "name": "notes-api",
   "version": "1.0.0",
   "description": "Uma API para anotações feita em JavaScript e SQLite.",
   "main": "index.js",
