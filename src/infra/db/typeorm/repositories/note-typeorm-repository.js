@@ -105,8 +105,6 @@ export class NoteTypeOrmRepository {
       .where('notes.id = :id', { id })
       .execute();
 
-    console.log(result);
-
     return !!result.affected;
   }
 }
