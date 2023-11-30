@@ -1,6 +1,10 @@
 import { EntitySchema } from 'typeorm';
 import { Note } from '../models/index.js';
 
+/**
+ * @constant NoteEntity - The entity note.
+ * @type Entity Note to be used for database queries.
+ */
 export const NoteEntity = new EntitySchema({
   name: 'Notes',
   target: Note,

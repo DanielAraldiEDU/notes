@@ -3,6 +3,7 @@ import {
   makeAddNoteController,
   makeLoadNotesController,
   makeUpdateNoteController,
+  makeDeleteNoteController,
 } from '../factories/index.js';
 
 /**
@@ -13,5 +14,5 @@ export function routes(router) {
   router.get('/notes', adaptRoute(makeLoadNotesController()));
   router.post('/note', adaptRoute(makeAddNoteController()));
   router.put('/note', adaptRoute(makeUpdateNoteController()));
-  router.delete('/note', () => {});
+  router.delete('/note', adaptRoute(makeDeleteNoteController()));
 }

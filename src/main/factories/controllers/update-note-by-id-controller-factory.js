@@ -3,7 +3,7 @@ import { makeDbUpdateNoteById } from '../usecases/index.js';
 import { makeUpdateNoteByIdValidation } from './update-note-by-id-validation-factory.js';
 
 /**
- * @function makeUpdateNoteByIdController - Add to `UpdateNoteController`
+ * @function makeUpdateNoteController - Add to `UpdateNoteController`
  * class all parameters in your constructor.
  *
  * @returns {Controller} - An instance of `UpdateNoteController` class
