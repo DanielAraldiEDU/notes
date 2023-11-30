@@ -13,7 +13,11 @@ export const adaptRoute = controller => {
    * @param {*} reply - The reply object is used to return the result of the server.
    */
   return async (request, reply) => {
-    const httpResponse = await controller.handle(request.body);
+    const httpRequest = {
+      ...(request.body || {}),
+      deviceId: request.headers?.deviceid || null,
+    };
+    const httpResponse = await controller.handle(httpRequest);
     if (httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299) {
       reply.code(httpResponse.statusCode).send(httpResponse.body);
     } else {

@@ -15,6 +15,12 @@ export class Note1701115363008 {
             generationStrategy: 'uuid',
           },
           {
+            name: 'deviceId',
+            type: 'varchar',
+            isNullable: false,
+            length: 255,
+          },
+          {
             name: 'title',
             type: 'varchar',
             isNullable: false,

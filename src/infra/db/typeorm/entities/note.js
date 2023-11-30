@@ -14,6 +14,12 @@ export const NoteEntity = new EntitySchema({
       nullable: false,
       primary: true,
     },
+    deviceId: {
+      name: 'deviceId',
+      type: 'varchar',
+      length: 255,
+      nullable: false,
+    },
     title: {
       name: 'title',
       type: 'varchar',

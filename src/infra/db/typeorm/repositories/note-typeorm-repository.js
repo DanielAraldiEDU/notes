@@ -19,6 +19,7 @@ export class NoteTypeOrmRepository extends AddNoteRepository {
     const newNote = new Note();
     newNote.message = note.message;
     newNote.title = note.title;
+    newNote.deviceId = note.deviceId;
     newNote.createdAt = new Date();
     newNote.updatedAt = null;
     const { id } = await repository.save(newNote);

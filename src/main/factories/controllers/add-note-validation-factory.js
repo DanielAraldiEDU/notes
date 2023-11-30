@@ -12,6 +12,8 @@ import {
  */
 export const makeAddNoteValidation = () => {
   const validations = [];
-  validations.push(new RequiredFieldValidation(['title', 'message']));
+  validations.push(
+    new RequiredFieldValidation(['title', 'message', 'deviceId'])
+  );
   return new ValidationComposite(validations);
 };
