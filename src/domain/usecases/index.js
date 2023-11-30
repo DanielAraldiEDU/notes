@@ -1,1 +1,2 @@
-export * from './add-notes.js';
+export * from './add-note.js';
+export * from './load-notes.js';

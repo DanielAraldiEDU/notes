@@ -2,8 +2,8 @@ import { AddNote } from '../../domain/index.js';
 
 /**
  * @public
- * @class `DbAddNote` - It's an implementation of database add
- * note.
+ * @class `DbAddNote` - It's an intermediate data between
+ * controllers and database
  *
  * @constructor `addNoteRepository` - It's an implementation of
  * database add note repository.
