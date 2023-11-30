@@ -15,6 +15,7 @@ export const adaptRoute = controller => {
   return async (request, reply) => {
     const httpRequest = {
       ...(request.body || {}),
+      id: request.headers?.id || null,
       deviceId: request.headers?.deviceid || null,
     };
     const httpResponse = await controller.handle(httpRequest);

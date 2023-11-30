@@ -1,3 +1,4 @@
+import { NoteEntity } from '../entities/index.js';
 import { TypeOrmHelper } from '../helpers/index.js';
 import { Note } from '../models/index.js';
 
@@ -47,8 +48,28 @@ export class NoteTypeOrmRepository {
     const notes = await repository
       .createQueryBuilder('notes')
       .where('notes.deviceId = :deviceId', { deviceId })
-      .orderBy('notes.createdAt', 'DESC')
+      .orderBy({ 'notes.createdAt': 'DESC' })
       .getMany();
     return notes || [];
+  }
+
+  async update(note) {
+    const repository = TypeOrmHelper.getRepository(Note);
+    if (!repository) return false;
+
+    const { id, deviceId, title, message } = note;
+
+    const result = await repository
+      .createQueryBuilder('notes')
+      .update(NoteEntity)
+      .set({
+        title,
+        message,
+        updatedAt: new Date(),
+      })
+      .where('notes.id = :id', { id })
+      .andWhere('notes.deviceId = :deviceId', { deviceId })
+      .execute();
+    return !!result.affected;
   }
 }

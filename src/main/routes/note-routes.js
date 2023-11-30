@@ -2,6 +2,7 @@ import { adaptRoute } from '../adapters/index.js';
 import {
   makeAddNoteController,
   makeLoadNotesController,
+  makeUpdateNoteController,
 } from '../factories/index.js';
 
 /**
@@ -11,6 +12,6 @@ import {
 export function routes(router) {
   router.get('/notes', adaptRoute(makeLoadNotesController()));
   router.post('/note', adaptRoute(makeAddNoteController()));
-  router.put('/note', () => {});
+  router.put('/note', adaptRoute(makeUpdateNoteController()));
   router.delete('/note', () => {});
 }

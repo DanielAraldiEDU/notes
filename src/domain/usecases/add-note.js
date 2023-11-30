@@ -12,7 +12,7 @@ export class AddNote {
    * @async The `add` method is async.
    *
    * @param {Note} note - Receive a `note` value as parameter
-   * with `title` and `message` values inside.
+   * with `title`, `message` and `deviceId` values inside.
    * @returns {Promise<string | null>} - A promise that contains the
    * `id` from note created or `null`.
    */
