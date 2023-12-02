@@ -1,6 +1,7 @@
 <h1 align="center">
   <br>Notes API<br/>
   JavaScript | Fastify | SQLite
+  <br/>
   <a href="https://wakatime.com/badge/user/920a7e43-2969-4212-82ff-1b375685ff58/project/018c0764-81db-45ee-a69b-15c8549c3972"><img src="https://wakatime.com/badge/user/920a7e43-2969-4212-82ff-1b375685ff58/project/018c0764-81db-45ee-a69b-15c8549c3972.svg" alt="wakatime"></a>
 </h1>
 
