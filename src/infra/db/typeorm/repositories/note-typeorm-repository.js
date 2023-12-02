@@ -31,9 +31,10 @@ export class NoteTypeOrmRepository {
     newNote.message = message;
     newNote.createdAt = new Date();
     newNote.updatedAt = null;
+
     /* 
-    INSERT INTO notes VALUES 
-    ('0e9c8b73-c8e0-4afd-b778-70a9c5f72e2e','655d23b84c3ee162','Título', 'Mensagem', CURRENT_TIMESTAMP, null);
+      INSERT INTO notes 
+      VALUES (':id',':deviceId',':title', ':message', CURRENT_TIMESTAMP, null);
     */
     const { id } = await repository.save(newNote);
     return id;
@@ -50,22 +51,18 @@ export class NoteTypeOrmRepository {
   async load(deviceId) {
     const repository = TypeOrmHelper.getRepository(Note);
     if (!repository) return [];
+
     /*
-    SELECT *
-    FROM notes
-    WHERE notes.deviceId = '9a6723d7beea487c3673dc82948ff8c3770a266f30afddc309add5a8d52b2d31'
-    ORDER BY COALESCE(notes.updatedAt, notes.createdAt) DESC
+      SELECT *
+      FROM notes
+      WHERE notes.deviceId = ':deviceId'
+      ORDER BY COALESCE(notes.updatedAt, notes.createdAt) DESC
     */
     const notes = await repository
       .createQueryBuilder('notes')
-      .where('notes.deviceId = :deviceId', { deviceId }) 
-      .orderBy({'COALESCE(notes.updatedAt, notes.createdAt)': 'DESC'})
+      .where('notes.deviceId = :deviceId', { deviceId })
+      .orderBy({ 'COALESCE(notes.updatedAt, notes.createdAt)': 'DESC' })
       .getMany();
-      /*
-      .where('COALESCE(notes.updatedAt, notes.createdAt)': 'DESC')
-     
-      .orderBy({ 'notes.createdAt': 'DESC' }) */
-      
     return notes || [];
   }
 
@@ -83,11 +80,12 @@ export class NoteTypeOrmRepository {
     if (!repository) return false;
 
     const { id, deviceId, title, message } = note;
+
     /*
-    UPDATE notes
-    SET title = 'Título Editado', message = 'Mensagem Editada', updatedAt = CURRENT_TIMESTAMP
-    WHERE notes.id = '25912976-1c02-4db0-90b6-6a288c9a9075'
-    AND notes.deviceId = '9a6723d7beea487c3673dc82948ff8c3770a266f30afddc309add5a8d52b2d31';
+      UPDATE notes
+      SET title = 'Título Editado', message = 'Mensagem Editada', updatedAt = CURRENT_TIMESTAMP
+      WHERE notes.id = ':id'
+      AND notes.deviceId = ':deviceId';
     */
     const result = await repository
       .createQueryBuilder('notes')
@@ -116,9 +114,10 @@ export class NoteTypeOrmRepository {
   async delete(id) {
     const repository = TypeOrmHelper.getRepository(Note);
     if (!repository) return false;
+
     /*
-    DELETE FROM notes
-    WHERE notes.id = '25912976-1c02-4db0-90b6-6a288c9a9075'
+      DELETE FROM notes
+      WHERE notes.id = ':id'
     */
     const result = await repository
       .createQueryBuilder('notes')
