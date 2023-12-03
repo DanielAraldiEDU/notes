@@ -48,6 +48,8 @@ Essa API foi realizada durante o **trabalho da M3** da matéria de banco de dado
   $ npm run dev # yarn dev
 ```
 
+3. Consultar com o [Insomnia](https://insomnia.rest/download): Vá a pasta chamada `pipelines` da raiz e baixe o arquivo `.json` que existe lá dentro. Com o seu Insomnia instalado, realize a importação desse arquivo para lá e fique a vontade para realizar as consultas!
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
