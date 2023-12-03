@@ -56,7 +56,7 @@ export class NoteTypeOrmRepository {
       SELECT *
       FROM notes
       WHERE notes.deviceId = ':deviceId'
-      ORDER BY COALESCE(notes.updatedAt, notes.createdAt) DESC
+      ORDER BY COALESCE(notes.updatedAt, notes.createdAt) DESC;
     */
     const notes = await repository
       .createQueryBuilder('notes')
@@ -117,7 +117,7 @@ export class NoteTypeOrmRepository {
 
     /*
       DELETE FROM notes
-      WHERE notes.id = ':id'
+      WHERE notes.id = ':id';
     */
     const result = await repository
       .createQueryBuilder('notes')

@@ -1,6 +1,20 @@
 import { Table } from 'typeorm';
 
+/**
+ * CREATE SCHEMA IF NOT EXISTS notes_db;
+ * USE notes_db;
+ */
 export class Note1701115363008 {
+  /**
+   * CREATE TABLE notes (
+   *  id VARCHAR(255) PRIMARY KEY AUTO_INCREMENT,
+   *  deviceId VARCHAR(255) NOT NULL,
+   *  title VARCHAR(6500) NOT NULL,
+   *  message VARCHAR(65000) NOT NULL,
+   *  createdAt DATETIME NOT NULL,
+   *  updatedAt DATETIME,
+   * );
+   */
   async up(queryRunner) {
     await queryRunner.createTable(
       new Table({
@@ -47,6 +61,9 @@ export class Note1701115363008 {
     );
   }
 
+  /**
+   * DROP TABLE notes;
+   */
   async down(queryRunner) {
     await queryRunner.dropTable('notes');
   }
