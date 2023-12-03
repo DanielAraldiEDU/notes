@@ -48,9 +48,11 @@ Essa API foi realizada durante o **trabalho da M3** da matéria de banco de dado
   $ npm run dev # yarn dev
 ```
 
-3. Consultar com o [Insomnia](https://insomnia.rest/download): Vá a pasta chamada `pipelines` da raiz e baixe o arquivo `.json` que existe lá dentro. Com o seu Insomnia instalado, realize a importação desse arquivo para lá e fique a vontade para realizar as consultas!
+3. Consultar com o [Insomnia](https://insomnia.rest/download): Vá a pasta chamada [`pipelines`](./pipelines/) da raiz e baixe o arquivo `.json` que existe lá dentro. Com o seu Insomnia instalado, realize a importação desse arquivo para lá e fique a vontade para realizar as consultas!
 
-4. **(Opicional)** - Quer ver nosso banco de dados? Bem, caso você queria ver nosso banco de dados mais aprofundadamente, nós recomendamos utilizar o [Beekeeper Studio](https://www.beekeeperstudio.io/) para isso, basta fazer o download dele na sua máquina e após o download, no Beekeeper Studio selecione o banco de dados que você quer consultar, no nosso caso será o **SQLite**, e depois selecione o arquivo `.sqlite` no projeto que está em `./src/infra/db/typeorm/database`.
+4. **(Opicional)** - Quer ver nosso banco de dados? Caso você queria ver nosso banco de dados mais aprofundadamente, nós recomendamos utilizar o [Beekeeper Studio](https://www.beekeeperstudio.io/) para isso, basta fazer o download dele na sua máquina e após o download, no Beekeeper Studio selecione o banco de dados que você quer consultar, no nosso caso será o **SQLite**, e depois selecione o arquivo `.sqlite` no projeto que está em `./src/infra/db/typeorm/database`.
+
+5. **(Opicional)** - Aonde está o `dump` de criação do banco de dados? Vá na pasta [`dump`](./dump/) que está na raiz do projeto, lá você encontrará os comandos SQL da aplicação.
 
 ## :memo: Licença
 
