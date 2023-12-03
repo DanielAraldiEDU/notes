@@ -14,7 +14,7 @@ export class DbDeleteNoteById extends DeleteNote {
     this.deleteNoteByIdRepository = deleteNoteByIdRepository;
   }
 
-  async delete(id) {
-    return await this.deleteNoteByIdRepository.delete(id);
+  async delete(credentials) {
+    return await this.deleteNoteByIdRepository.delete(credentials);
   }
 }

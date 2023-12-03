@@ -27,13 +27,13 @@ export const NoteEntity = new EntitySchema({
     title: {
       name: 'title',
       type: 'varchar',
-      length: 6500,
+      length: 1600,
       nullable: false,
     },
     message: {
       name: 'message',
       type: 'varchar',
-      length: 65000,
+      length: 6400,
       nullable: false,
     },
     createdAt: {

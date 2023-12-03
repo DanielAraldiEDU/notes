@@ -1,6 +1,5 @@
 import {
   RequiredFieldValidation,
-  AlmostRequiredFieldValidation,
   ValidationComposite,
 } from '../../../validation/validators/index.js';
 
@@ -13,7 +12,8 @@ import {
  */
 export const makeUpdateNoteByIdValidation = () => {
   const validations = [];
-  validations.push(new RequiredFieldValidation(['id', 'deviceId']));
-  validations.push(new AlmostRequiredFieldValidation(['title', 'message']));
+  validations.push(
+    new RequiredFieldValidation(['id', 'deviceId', 'title', 'message'])
+  );
   return new ValidationComposite(validations);
 };

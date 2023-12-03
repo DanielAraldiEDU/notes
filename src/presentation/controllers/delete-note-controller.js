@@ -27,7 +27,7 @@ export class DeleteNoteController extends Controller {
       const error = this.validation.validate(request);
       if (error) return badRequest(error);
 
-      const isDeleted = await this.dbDeleteNoteById.delete(request.id);
+      const isDeleted = await this.dbDeleteNoteById.delete(request);
       return isDeleted ? noContent() : notImplemented();
     } catch (error) {
       return serverError(error);

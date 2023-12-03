@@ -12,6 +12,6 @@ import {
  */
 export const makeDeleteNoteByIdValidation = () => {
   const validations = [];
-  validations.push(new RequiredFieldValidation(['id']));
+  validations.push(new RequiredFieldValidation(['id', 'deviceId']));
   return new ValidationComposite(validations);
 };

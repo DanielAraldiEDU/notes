@@ -15,12 +15,6 @@ export class DbUpdateNoteById extends UpdateNote {
   }
 
   async update(note) {
-    const onlyValuesThatExistsInNote = {};
-    for (const property in note) {
-      if (note[property]) onlyValuesThatExistsInNote[property] = note[property];
-    }
-    return await this.updateNoteByIdRepository.update(
-      onlyValuesThatExistsInNote
-    );
+    return await this.updateNoteByIdRepository.update(note);
   }
 }

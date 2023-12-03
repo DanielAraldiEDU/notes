@@ -9,10 +9,10 @@ export class Note1701115363008 {
    * CREATE TABLE notes (
    *  id VARCHAR(255) PRIMARY KEY AUTO_INCREMENT,
    *  deviceId VARCHAR(255) NOT NULL,
-   *  title VARCHAR(6500) NOT NULL,
-   *  message VARCHAR(65000) NOT NULL,
+   *  title VARCHAR(1600) NOT NULL,
+   *  message VARCHAR(6400) NOT NULL,
    *  createdAt DATETIME NOT NULL,
-   *  updatedAt DATETIME,
+   *  updatedAt DATETIME
    * );
    */
   async up(queryRunner) {
@@ -38,13 +38,13 @@ export class Note1701115363008 {
             name: 'title',
             type: 'varchar',
             isNullable: false,
-            length: 6500,
+            length: 1600,
           },
           {
             name: 'message',
             type: 'varchar',
             isNullable: false,
-            length: 65000,
+            length: 6400,
           },
           {
             name: 'createdAt',

@@ -32,10 +32,10 @@ export class NoteTypeOrmRepository {
     newNote.createdAt = new Date();
     newNote.updatedAt = null;
 
-    /* 
-      INSERT INTO notes 
-      VALUES (':id',':deviceId',':title', ':message', CURRENT_TIMESTAMP, null);
-    */
+    /**
+     * INSERT INTO notes
+     * VALUES (':id',':deviceId',':title', ':message', CURRENT_TIMESTAMP, null);
+     */
     const { id } = await repository.save(newNote);
     return id;
   }
@@ -52,12 +52,12 @@ export class NoteTypeOrmRepository {
     const repository = TypeOrmHelper.getRepository(Note);
     if (!repository) return [];
 
-    /*
-      SELECT *
-      FROM notes
-      WHERE notes.deviceId = ':deviceId'
-      ORDER BY COALESCE(notes.updatedAt, notes.createdAt) DESC;
-    */
+    /**
+     * SELECT *
+     * FROM notes
+     * WHERE notes.deviceId = ':deviceId'
+     * ORDER BY COALESCE(notes.updatedAt, notes.createdAt) DESC;
+     */
     const notes = await repository
       .createQueryBuilder('notes')
       .where('notes.deviceId = :deviceId', { deviceId })
@@ -70,7 +70,7 @@ export class NoteTypeOrmRepository {
    * @method update - It's the base method.
    * @async The `update` method is async.
    *
-   * @param {Note} update - Receive a note object with values
+   * @param {Note} note - Receive a note object with values
    * to be updated.
    * @returns {Promise<boolean>} - A promise boolean with note
    * updated or not.
@@ -81,12 +81,12 @@ export class NoteTypeOrmRepository {
 
     const { id, deviceId, title, message } = note;
 
-    /*
-      UPDATE notes
-      SET title = 'Título Editado', message = 'Mensagem Editada', updatedAt = CURRENT_TIMESTAMP
-      WHERE notes.id = ':id'
-      AND notes.deviceId = ':deviceId';
-    */
+    /**
+     * UPDATE notes
+     * SET title = 'Título Editado', message = 'Mensagem Editada', updatedAt = CURRENT_TIMESTAMP
+     * WHERE notes.id = ':id'
+     * AND notes.deviceId = ':deviceId';
+     */
     const result = await repository
       .createQueryBuilder('notes')
       .update(NoteEntity)
@@ -106,24 +106,28 @@ export class NoteTypeOrmRepository {
    * @method delete - It's the base method.
    * @async The `delete` method is async.
    *
-   * @param {String} id - Receive a note `id` to select and
-   * delete note.
+   * @param {String} credentials - Receive a note `id` and `deviceId` of the user
+   * to delete a note.
    * @returns {Promise<boolean>} - A promise boolean with note
    * deleted or not.
    */
-  async delete(id) {
+  async delete(credentials) {
     const repository = TypeOrmHelper.getRepository(Note);
     if (!repository) return false;
 
-    /*
-      DELETE FROM notes
-      WHERE notes.id = ':id';
-    */
+    const { id, deviceId } = credentials;
+
+    /**
+     * DELETE FROM notes
+     * WHERE notes.id = ':id'
+     * AND notes.deviceId = ':deviceId';
+     */
     const result = await repository
       .createQueryBuilder('notes')
       .delete()
       .from(NoteEntity)
       .where('notes.id = :id', { id })
+      .andWhere('notes.deviceId = :deviceId', { deviceId })
       .execute();
 
     return !!result.affected;
