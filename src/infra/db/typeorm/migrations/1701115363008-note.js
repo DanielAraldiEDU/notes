@@ -7,7 +7,7 @@ import { Table } from 'typeorm';
 export class Note1701115363008 {
   /**
    * CREATE TABLE notes (
-   *  id VARCHAR(255) PRIMARY KEY AUTO_INCREMENT,
+   *  id VARCHAR(255) PRIMARY KEY,
    *  deviceId VARCHAR(255) NOT NULL,
    *  title VARCHAR(1600) NOT NULL,
    *  message VARCHAR(6400) NOT NULL,
