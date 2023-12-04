@@ -15,7 +15,7 @@ CREATE TABLE notes (
   updatedAt DATETIME
 );
 
--- Inserted some datas 
+-- Inserted some data 
 INSERT INTO notes VALUES ('0e9c8b73-c8e0-4afd-b778-70a9c5f72e2e','655d23b84c3ee162','Title', 'Message', CURRENT_TIMESTAMP, null);
 INSERT INTO notes VALUES ('d3ed67dc-e052-4395-a835-d9c6203ed206','9a6723d7beea487c3673dc82948ff8c3770a266f30afddc309add5a8d52b2d31','Title', 'Message', CURRENT_TIMESTAMP, null);
 

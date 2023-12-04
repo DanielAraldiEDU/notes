@@ -2,7 +2,7 @@
  * @abstract
  * @public
  *
- * @class UpdateNote - It's an impletation base to update notes.
+ * @class UpdateNote - It's an implementation base to update notes.
  */
 export class UpdateNote {
   constructor() {}

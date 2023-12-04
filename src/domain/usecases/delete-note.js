@@ -2,7 +2,7 @@
  * @abstract
  * @public
  *
- * @class DeleteNote - It's an impletation base to delete note.
+ * @class DeleteNote - It's an implementation base to delete note.
  */
 export class DeleteNote {
   constructor() {}

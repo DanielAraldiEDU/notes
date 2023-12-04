@@ -2,7 +2,7 @@
  * @abstract
  * @public
  *
- * @class AddNote - It's an impletation base to add notes.
+ * @class AddNote - It's an implementation base to add notes.
  */
 export class AddNote {
   constructor() {}

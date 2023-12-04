@@ -1,6 +1,6 @@
 /**
  * @class NotImplementedError - Error thrown when a feature
- * doesnt's exists in server.
+ * doesn't exists in server.
  *
  * @extends {Error}
  */

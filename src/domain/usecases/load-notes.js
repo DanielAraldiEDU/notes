@@ -2,7 +2,7 @@
  * @abstract
  * @public
  *
- * @class LoadNote - It's an impletation base to load notes.
+ * @class LoadNote - It's an implementation base to load notes.
  */
 export class LoadNote {
   constructor() {}
