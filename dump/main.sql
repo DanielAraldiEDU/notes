@@ -30,7 +30,7 @@ WHERE notes.id = ':note.id' -- Some note id
 AND notes.deviceId = ':notes.deviceId'; -- Some note device id
 
 DELETE FROM notes
-WHERE notes.id = ':note.id' -- Some note id
+WHERE notes.id = ':note.id'; -- Some note id
 
 -- Delete notes table
 DROP TABLE notes;
